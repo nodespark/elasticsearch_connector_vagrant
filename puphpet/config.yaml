@@ -3,7 +3,7 @@ vagrantfile:
     vm:
         box: puphpet/ubuntu1404-x64
         box_url: puphpet/ubuntu1404-x64
-        hostname: elasticsearch_connector.local
+        hostname: elasticsearch-connector.local
         memory: '4096'
         cpus: '2'
         chosen_provider: virtualbox
