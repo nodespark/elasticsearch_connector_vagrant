@@ -86,7 +86,19 @@ locale:
             - en_US.UTF-8
 firewall:
     install: '1'
-    rules: {  }
+    rules:
+        fr_3rvxg0crf09a:
+            port:
+                - '80'
+            priority: '100'
+            proto: tcp
+            action: accept
+        fr_3rvxg0crf09b:
+            port:
+                - '9200'
+            priority: '100'
+            proto: tcp
+            action: accept
 cron:
     install: '1'
     jobs: {  }
