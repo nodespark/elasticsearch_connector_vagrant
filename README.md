@@ -1,0 +1,1 @@
+# elasticsearch_connector_vagrant
