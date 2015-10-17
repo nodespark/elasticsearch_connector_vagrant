@@ -1,0 +1,9 @@
+.DS_Store
+.buildpath
+.project
+.idea
+.settings
+.vagrant
+puphpet/files/dot/ssh/*
+shared/*
+!shared/README.md
