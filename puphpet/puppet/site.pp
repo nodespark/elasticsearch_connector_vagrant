@@ -74,7 +74,13 @@ if array_true($elasticsearch, 'install') {
     elasticsearch => $elasticsearch
   }
 
-  elasticsearch::instance { 'es-01': }
+  elasticsearch::instance { 'es-01': 
+    config       => {
+      'network'  => {
+        'bind_host' => '0.0.0.0'
+      }
+    }
+  }
 }
 
 class { '::puphpet_firewall':
