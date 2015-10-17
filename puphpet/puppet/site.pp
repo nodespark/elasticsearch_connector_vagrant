@@ -70,9 +70,8 @@ if array_true($drush, 'install') {
 }
 
 if array_true($elasticsearch, 'install') {
-  class { 'elasticsearch':
-    package_url => 'https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.0.0-rc1/elasticsearch-2.0.0-rc1.deb',
-    java_install => true
+  class { '::puphpet_elasticsearch':
+    elasticsearch => $elasticsearch
   }
 
   elasticsearch::instance { 'es-01': }

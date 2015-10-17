@@ -5,18 +5,23 @@ class puphpet_elasticsearch (
   $settings = $elasticsearch['settings']
   $version  = $elasticsearch['settings']['version']
 
-  $url_base = 'https://download.elasticsearch.org/elasticsearch/elasticsearch'
+  if ! $settings['package_url'] {
+    $url_base = 'https://download.elastic.co/elasticsearch/elasticsearch'
 
-  case $::osfamily {
-    'debian': {
-      $url = "${url_base}/elasticsearch-${version}.deb"
+    case $::osfamily {
+      'debian': {
+        $url = "${url_base}/elasticsearch-${version}.deb"
+      }
+      'redhat': {
+        $url = "${url_base}/elasticsearch-${version}.noarch.rpm"
+      }
+      default: {
+        fail('Unrecognized operating system for Elastic Search')
+      }
     }
-    'redhat': {
-      $url = "${url_base}/elasticsearch-${version}.noarch.rpm"
-    }
-    default: {
-      fail('Unrecognized operating system for Elastic Search')
-    }
+  }
+  else {
+    $url = $settings['package_url']
   }
 
   if ! defined(Class['java']) and $settings['java_install'] {
