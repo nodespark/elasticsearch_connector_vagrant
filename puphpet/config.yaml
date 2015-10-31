@@ -257,6 +257,7 @@ php:
         php:
             - cli
             - intl
+            - gd
             - mcrypt
             - curl
         pear: {  }
