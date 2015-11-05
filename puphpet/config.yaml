@@ -13,6 +13,9 @@ vagrantfile:
                 vflnp_ep53aayv3ojw:
                     host: '7890'
                     guest: '22'
+                vflnp_ep53aayv3oj1:
+                    host: '8888'
+                    guest: '80'
         post_up_message: ''
         provider:
             virtualbox:
