@@ -117,7 +117,7 @@ nginx:
             server_name: elasticsearch-connector8.dev
             server_aliases:
                 - www.elasticsearch-connector8.dev
-            www_root: /var/www/elasticsearch_connector8
+            www_root: /var/www/elasticsearch_connector8/web
             listen_port: '80'
             index_files:
                 - index.html
@@ -162,7 +162,7 @@ nginx:
             server_name: elasticsearch-connector7.dev
             server_aliases:
                 - www.elasticsearch-connector7.dev
-            www_root: /var/www/elasticsearch_connector7
+            www_root: /var/www/elasticsearch_connector7/web
             listen_port: '80'
             index_files:
                 - index.html
