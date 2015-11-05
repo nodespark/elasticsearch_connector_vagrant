@@ -113,11 +113,56 @@ nginx:
         proxy_buffers: '4 256k'
     upstreams: {  }
     vhosts:
-        nxv_oknt05kkdi7q:
-            server_name: elasticsearch-connector8.dev
+        nxv_oknt05kkdi72:
+            server_name: elasticsearch-connector82.dev
             server_aliases:
-                - www.elasticsearch-connector8.dev
-            www_root: /var/www/elasticsearch_connector8/web
+                - www.elasticsearch-connector82.dev
+            www_root: /var/www/elasticsearch_connector82/web
+            listen_port: '80'
+            index_files:
+                - index.html
+                - index.htm
+                - index.php
+            client_max_body_size: 1m
+            ssl: '0'
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_port: '443'
+            ssl_protocols: ''
+            ssl_ciphers: ''
+            rewrite_to_https: '1'
+            spdy: '1'
+            locations:
+                nxvl_806mcgcefka2:
+                    location: /
+                    autoindex: 'off'
+                    internal: 'false'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php$is_args$args
+                    fastcgi: ''
+                    fastcgi_index: ''
+                    fastcgi_split_path: ''
+                nxvl_fs53s4uhh6m2:
+                    location: '~ \.php$'
+                    autoindex: 'off'
+                    internal: 'false'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php$is_args$args
+                    fastcgi: '127.0.0.1:9000'
+                    fastcgi_index: index.php
+                    fastcgi_split_path: '^(.+\.php)(/.*)$'
+                    fast_cgi_params_extra:
+                        - 'SCRIPT_FILENAME $request_filename'
+                        - 'APP_ENV dev'
+        nxv_oknt05kkdi7q:
+            server_name: elasticsearch-connector81.dev
+            server_aliases:
+                - www.elasticsearch-connector81.dev
+            www_root: /var/www/elasticsearch_connector81/web
             listen_port: '80'
             index_files:
                 - index.html
@@ -158,11 +203,56 @@ nginx:
                     fast_cgi_params_extra:
                         - 'SCRIPT_FILENAME $request_filename'
                         - 'APP_ENV dev'
-        nxv_36dkj5zyzvbd:
-            server_name: elasticsearch-connector7.dev
+        nxv_36dkj5zyzvb2:
+            server_name: elasticsearch-connector72.dev
             server_aliases:
-                - www.elasticsearch-connector7.dev
-            www_root: /var/www/elasticsearch_connector7/web
+                - www.elasticsearch-connector72.dev
+            www_root: /var/www/elasticsearch_connector72/web
+            listen_port: '80'
+            index_files:
+                - index.html
+                - index.htm
+                - index.php
+            client_max_body_size: 1m
+            ssl: '0'
+            ssl_cert: ''
+            ssl_key: ''
+            ssl_port: '443'
+            ssl_protocols: ''
+            ssl_ciphers: ''
+            rewrite_to_https: '1'
+            spdy: '1'
+            locations:
+                nxvl_ud5kdgwot132:
+                    location: /
+                    autoindex: 'off'
+                    internal: 'false'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php$is_args$args
+                    fastcgi: ''
+                    fastcgi_index: ''
+                    fastcgi_split_path: ''
+                nxvl_bnwlmdf5o932:
+                    location: '~ \.php$'
+                    autoindex: 'off'
+                    internal: 'false'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php$is_args$args
+                    fastcgi: '127.0.0.1:9000'
+                    fastcgi_index: index.php
+                    fastcgi_split_path: '^(.+\.php)(/.*)$'
+                    fast_cgi_params_extra:
+                        - 'SCRIPT_FILENAME $request_filename'
+                        - 'APP_ENV dev'
+        nxv_36dkj5zyzvbd:
+            server_name: elasticsearch-connector71.dev
+            server_aliases:
+                - www.elasticsearch-connector71.dev
+            www_root: /var/www/elasticsearch_connector71/web
             listen_port: '80'
             index_files:
                 - index.html
@@ -351,11 +441,17 @@ mysql:
             name: dbuser
             password: '123'
     databases:
+        mysqlnd_tw8cp0vj6nj2:
+            name: elasticsearch_connector82
+            sql: ''
         mysqlnd_tw8cp0vj6njs:
-            name: elasticsearch_connector8
+            name: elasticsearch_connector81
+            sql: ''
+        mysqlnd_k256sh8g60n2:
+            name: elasticsearch_connector72
             sql: ''
         mysqlnd_k256sh8g60nf:
-            name: elasticsearch_connector7
+            name: elasticsearch_connector71
             sql: ''
     grants:
         mysqlng_0jr9a54l3ius:
@@ -441,7 +537,7 @@ rabbitmq:
 elastic_search:
     install: '1'
     settings:
-        package_url: 'https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.0.0-rc1/elasticsearch-2.0.0-rc1.deb'
+        package_url: 'https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/deb/elasticsearch/2.0.0/elasticsearch-2.0.0.deb'
         java_install: true
 solr:
     install: '0'
